@@ -1,1 +1,1 @@
-# ip-buttonpusher-node-sqlite-express
+An app that stores the client's IP address when they click a button, along with a timestamp. It displays the recorded IPs on the main page.

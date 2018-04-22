@@ -1,0 +1,28 @@
+{
+  "name": "ip-buttonpusher-node-sqlite-express",
+  "version": "0.0.1",
+  "description": "Stores the user's IP and shows past IP addresses at the push of a button",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.15.2",
+    "sqlite": "*",
+    "sequelize": "*",
+    "web-push": "^3.2.2"
+  },
+  "engines": {
+    "node": "6.10.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/welcome-project"
+  },
+  "license": "none",
+  "keywords": [
+    "node",
+    "glitch",
+    "express",
+    "ip address"
+  ]
+}
