@@ -26,7 +26,6 @@ app.get('/storeip', function (request, response) {
   newIp = newIp.substr(0, newIp.indexOf(',')); // Remove commas since x-forwarded-for often has several commas. Value before the first comma seems to be the original IP.
   let newDatetime = new Date();
   newDatetime = newDatetime.toString;
-  console.log(newDatetime);
   myDatabase.create({ ip: newIp, datetime: newDatetime});
   let responseObject = { url: '/storeip' };
   responseObject.ipsArray = []
@@ -48,7 +47,10 @@ app.get('/showlasttenaddresses', function (request, response) {
     limit: 10,
     order: [['datetimeCreated', 'DESC']] // DESC aka descending starts with the most recent entry, so it returns the IP addresses in the order we want them (newest first).
   }).then(function(entries) {
+    console.log(entries);
     entries.forEach(function(entry) {
+      console.log(entry);
+      console.log(entry.ip,entry.datetimeCreated);
       responseObject.ipsArray.push([entry.ip,entry.datetimeCreated]); // Changed .unshift to .push now that the entries are sorted in the order we want them (newest first).
     });
     response.send(responseObject); // Implicitly serializes the object so calling JSON.stringify(object) isn't necessary.
